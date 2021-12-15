@@ -1,0 +1,17 @@
+body {
+    background-color: #121212;
+    color: white;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+.container h1 {
+    font-size: 30px;
+    margin-top: 40px;
+}
+.container input {
+    margin: 20px 0;;
+}

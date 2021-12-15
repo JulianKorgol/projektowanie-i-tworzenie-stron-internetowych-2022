@@ -1,0 +1,1 @@
+Projekt, w którym korzystamy z API.
