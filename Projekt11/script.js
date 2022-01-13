@@ -7,9 +7,8 @@ $(document).ready(function() {
         $('#kraj').html(data.results[0].location.country);
         $('#picture').attr('src', data.results[0].picture.large);
         $('#e-mail').html(data.results[0].email);
-        $('#phone').html(data.results[0].phone);
-        $('#user').html(data.results[0].login.username);
-        $('#age').html(data.results[0].dob.age);
+        $('#minecraft').html(data.results[0].login.username);
+        $('#wiek').html(data.results[0].dob.age);
         if (data.results[0].gender == "male") {
             $('#programista').html("Jestem programistą!");
         } else {
