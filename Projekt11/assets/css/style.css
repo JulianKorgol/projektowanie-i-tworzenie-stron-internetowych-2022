@@ -2,6 +2,28 @@ body {
     background-color: #121212;
 }
 
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.welcome h1 {
+    font-size: 50px;
+    color: white;
+    margin-left: 100px;
+}
+
+.welcome h2 {
+    font-size: 25px;
+    color: white;
+    justify-content: right;
+    margin-bottom: 25px;
+    margin-right: 100px;
+}
+
 .container {
     width: 100%;
     display: flex;
@@ -11,20 +33,51 @@ body {
 
 .col-l {
     width: 100%;
-    background-color: #121212;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
+.col-l .firstbox {
+    width: 320px;
+    padding: 10px;
+    border: 5px green;
+    background: green;
+    margin: 0;
+    width: 70%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 75px;
+}
+
+.col-l .secondbox {
+    width: 320px;
+    padding: 10px;
+    border: 5px green;
+    background: green;
+    margin: 0;
+    width: 70%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 75px;
+}
+
 .col-s {
     width: 400px;
-    background-color: #C0C0C0;
 }
 
 .container img {
     width: 400px;
     background-size: cover;
     height: 200px;
+}
+
+.container #picture {
+    margin-left: -120px;
+    margin-top: -100px;
+}
+
+.container #picture2 {
+    margin-left: 30px;
 }
 
 .container h1 {
@@ -42,6 +95,11 @@ body {
     text-align: center;
 }
 
+.container ul {
+    font-size: 20px;
+    text-align: center;
+}
+
 .container a {
     font-size: 20px;
     text-align: center;
@@ -52,18 +110,26 @@ body {
     padding-top: 60px;
 }
 
-.container .obrazek {
-    display: flex;
-    margin: 0 auto;
+.pizzacontainer {
+    padding-left: 50px;
 }
 
-.container .obrazek img {
-    height: 100%;
+.container .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.container .image img {
+    height: 80%;
     width: 100%;
+    border-radius: 50%;
 }
 
 .container .github {
     padding-top: 80px;
+    width: 60%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -80,4 +146,28 @@ body {
         order: 2;
         height: auto;
     }
+    .container .github {
+        width: auto;
+    }
+    .pizzacontainer {
+        padding-left: unset;
+    }
+    .pizzacontainer img {
+        margin-right: 20px;
+    }
+    .container .image {
+        justify-content: unset;
+        align-items: unset;
+        width: auto;
+        margin: auto;
+        margin-top: 90px;
+    }
+    .container .image img {
+        height: auto;
+        width: 300px;
+        margin: auto;
+    }
+    /*.container #picture1 {*/
+    /*    padding-left: 150px;*/
+    /*}*/
 }

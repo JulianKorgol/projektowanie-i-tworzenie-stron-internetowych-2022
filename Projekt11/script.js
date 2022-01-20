@@ -3,16 +3,17 @@ $(document).ready(function() {
 
     $.get( url, function( data ) {
         console.log(data);
-        $('#imie').html(data.results[0].name.first + ' ' + data.results[0].name.last);
-        $('#kraj').html(data.results[0].location.country);
+        $('#name').html(data.results[0].name.first + ' ' + data.results[0].name.last);
+        $('#headname').html(data.results[0].name.first + ' ' + data.results[0].name.last);
+        $('#country').html(data.results[0].location.country);
         $('#picture').attr('src', data.results[0].picture.large);
         $('#e-mail').html(data.results[0].email);
         $('#minecraft').html(data.results[0].login.username);
-        $('#wiek').html(data.results[0].dob.age);
+        $('#age').html(data.results[0].dob.age);
         if (data.results[0].gender == "male") {
-            $('#programista').html("Jestem programistą!");
+            $('#programmer').html("Jestem programistą!");
         } else {
-            $('#programista').html("Jestem programistką!");
+            $('#programmer').html("Jestem programistką!");
         }
     });
 });
