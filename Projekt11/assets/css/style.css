@@ -162,12 +162,17 @@ body {
         margin: auto;
         margin-top: 90px;
     }
+    .container #picture {
+        margin-left: 20px;
+    }
+    .container #picture2 {
+        margin-top: -80px;
+    }
     .container .image img {
         height: auto;
         width: 300px;
-        margin: auto;
     }
-    /*.container #picture1 {*/
-    /*    padding-left: 150px;*/
-    /*}*/
+    .container .twitter {
+        margin-top: -20px;
+    }
 }
