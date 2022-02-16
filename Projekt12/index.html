@@ -8,6 +8,9 @@
 </head>
 <body>
     <style>
+        body {
+            background-color: #121212;
+        }
         .game {
             margin: 100px auto 0;
             width: 300px;
@@ -15,11 +18,25 @@
         .game .row div {
             height: 100px;
             width: 100px;
-            background: grey;
+            background: white;
             margin: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 42px;
+            font-family: Arial;
         }
         .game .row {
             display: flex;
+        }
+        .window {
+            background-color: #3a3a3a;
+            padding: 50px;
+            display: inline-block;
+            float: right;
+            margin-top: -325px;
+            color: white;
         }
     </style>
     <div class="game" onclick="move(event)">
@@ -38,6 +55,18 @@
             <div id="7"></div>
             <div id="8"></div>
         </div>
+    </div>
+    <div class="window">
+        <h2 id="playermove">Aktualny ruch: Gracz 1</h2>
+        <p id="gameMove"></p>
+        <h1 id="gameWin"></h1>
+        <p id="moveNumber">Aktualna kolejka: 1</p>
+        <h2>Gracz 1</h2>
+        <p>Zwycięstw: <p id="winner1"></p></p>
+        <h2>Gracz 2</h2>
+        <p>Zwycięstw: <p id="winner2"></p></p>
+        <input type="button" value="RESET" onclick="reset();" />
+        <input type="button" value="KEEP PLAYING" onclick="keepPlaying();" />
     </div>
     <script src="script.js"></script>
 </body>
