@@ -48,6 +48,9 @@ function checkWin() {
                     kolejka += 1;
                     document.getElementById('moveNumber').innerHTML = "Aktualna kolejka: " + kolejka;
                     game = 'noactive'
+                    setTimeout(function() {
+                        alert("Wygrał Player1");
+                    }, 500);
                 } else {
                     //    Jeśli wygra player2
                     winner2 += 1;
@@ -57,6 +60,9 @@ function checkWin() {
                     kolejka += 1;
                     document.getElementById('moveNumber').innerHTML = "Aktualna kolejka: " + kolejka;
                     game = 'noactive'
+                    setTimeout(function() {
+                        alert("Wygrał Player2");
+                    }, 500);
                 }
             }
         }
