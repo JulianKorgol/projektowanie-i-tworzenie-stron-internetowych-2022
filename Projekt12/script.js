@@ -5,6 +5,21 @@ var winner1 = 0;
 var winner2 = 0;
 var game = 'active';
 
+kolejka = localStorage.getItem('kolejka');
+player = localStorage.getItem('player');
+winner1 = localStorage.getItem('winner1');
+winner2 = localStorage.getItem('winner2');
+if (kolejka === null)  {
+    kolejka = 1;
+    document.getElementById('winner1').innerHTML = "Zwycięstw: ";
+    document.getElementById('winner2').innerHTML = "Zwycięstw: ";
+}
+else {
+    document.getElementById('winner1').innerHTML = winner1 ? "Zwycięstw: " + winner1 : '';
+    document.getElementById('winner2').innerHTML = winner2 ? "Zwycięstw: " + winner2 : '';
+}
+setDefault()
+
 function move(event) {
     var id = event.target.id;
     if (id && game === 'active') {
@@ -41,8 +56,10 @@ function checkWin() {
             if ((moves[listaToCheck[0]] === moves[listaToCheck[1]] && moves[listaToCheck[1]] === moves[listaToCheck[2]])) {
                 if (winner === 1) {
                     //    Jeśli wygra player1
+                    kolejka = Number(kolejka);
+                    winner1 = Number(winner1);
                     winner1 += 1;
-                    document.getElementById('winner1').innerHTML = "Zwycięstw: " + winner1;
+                    document.getElementById('winner1').innerHTML = "Zwycięstw: " + (winner1 ? winner1 : 0);
                     document.getElementById('gameWin').innerHTML = "Wygrał Player1";
                     // Kolejka +1
                     kolejka += 1;
@@ -53,10 +70,12 @@ function checkWin() {
                     }, 500);
                 } else {
                     //    Jeśli wygra player2
+                    winner2 = Number(winner2);
                     winner2 += 1;
-                    document.getElementById('winner2').innerHTML = "Zwycięstw: " + winner2;
+                    document.getElementById('winner2').innerHTML = "Zwycięstw: " + (winner2 ? winner2 : 0);
                     document.getElementById('gameWin').innerHTML = "Wygrał Player2";
                     // Kolejka +1
+                    kolejka = Number(kolejka);
                     kolejka += 1;
                     document.getElementById('moveNumber').innerHTML = "Aktualna kolejka: " + kolejka;
                     game = 'noactive'
@@ -81,15 +100,23 @@ const wins = [
 ];
 
 function reset() {
-    kolejka = 1;
     winner1 = 0;
     winner2 = 0;
+    localStorage.removeItem('kolejka');
+    localStorage.removeItem('player');
+    localStorage.removeItem('winner1');
+    localStorage.removeItem('winner2');
+    localStorage.removeItem('game');
+    kolejka = 1;
+    document.getElementById('winner1').innerHTML = "Zwycięstw: ";
+    document.getElementById('winner2').innerHTML = "Zwycięstw: ";
     setDefault()
 }
 
 function keepPlaying() {
     game = 'active'
     setDefault()
+    saveGameToBrowser()
 }
 
 function setDefault() {
@@ -103,4 +130,12 @@ function setDefault() {
         document.getElementById(id).innerHTML = '';
     }
     player  = 1;
+}
+
+function saveGameToBrowser() {
+    localStorage.setItem('kolejka', kolejka);
+    localStorage.setItem('player', player);
+    localStorage.setItem('winner1', winner1);
+    localStorage.setItem('winner2', winner2);
+    localStorage.setItem('game', game);
 }

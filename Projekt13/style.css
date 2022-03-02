@@ -1,0 +1,31 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: #121212;
+}
+
+.project {
+    margin-top: 20px;
+    color: white;
+    margin-left: 50px;
+}
+
+.project h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.project ul {
+    line-height: 1.8;
+}
+
+.project button {
+    margin-top: 30px;
+    padding: 20px;
+    margin-left: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.project button:hover {
+    background: #ff9800;
+}
