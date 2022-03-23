@@ -29,3 +29,8 @@ body {
 .project button:hover {
     background: #ff9800;
 }
+
+.project #answer {
+    margin-top: 50px;
+    font-weight: bold;
+}
