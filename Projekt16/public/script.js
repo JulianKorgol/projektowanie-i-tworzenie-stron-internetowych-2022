@@ -3,6 +3,7 @@ $(document).ready(function () {
     const inputsCount = inputs.length;
     const pattern =  ['A','a','Ą','ą','B','b','C','c','Ć','ć','D','d','E','e','Ę','ę','F','f','G','g','H','h','I','i','J','j','K','k','L','l','Ł','ł','M','m','N','n','Ń','ń','O','o','Ó','ó','P','p','R','r','S','s','Ś','ś','T','t','U','u','W','w','Y','y','Z','z','Ź','ź','Ż','ż'];
     const chances = [false, false, false, false, false, false];
+    let points = 0;
 
     const blockLine = (lineId) => {
         const row = document.getElementsByClassName('row')[lineId];
@@ -69,10 +70,14 @@ $(document).ready(function () {
             input.value = "";
         }
     }
-    let points = 0;
-    function addPoint(points) {
-        console.error(points)
-        document.getElementById(Points).innerHTML = points;
+
+    function addPoint(status) {
+        if (status === 'ok') {
+            points++;
+        } else {
+            points = points - 1;
+        }
+        document.getElementById("Points").innerHTML = points;
     }
 
     const submitLine = () => {
@@ -103,14 +108,16 @@ $(document).ready(function () {
                         console.log(response);
                         if (response === 'no') {
                             resetLine(index*1);
+                            addPoint('no');
                         } else if (response === 'ok') {
                             chances[index] = true;
                             blockLine(index);
                             activateLine(index+1);
                             unLock(index+1);
-                            addPoint(points+1);
+                            addPoint('ok');
                         } else {
                             console.log('Wystąpił błąd.')
+
                         }
                     });
                 }
