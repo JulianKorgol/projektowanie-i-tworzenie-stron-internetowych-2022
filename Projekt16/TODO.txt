@@ -1,0 +1,5 @@
+4: Dokończyć grę -> DONE
+
+5: Dodatkowe funkcje np. Podświetlanie liter, punktacja ->
+
+Na 6: Algorytm, który zwróci hasło na podstawie dnia.

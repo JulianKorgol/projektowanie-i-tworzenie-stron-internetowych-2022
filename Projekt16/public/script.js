@@ -35,6 +35,46 @@ $(document).ready(function () {
         input.focus();
     }
 
+    const unLock = (lineId) => {
+        const row = document.getElementsByClassName('row')[lineId];
+
+        if (!row) {
+            return;
+        }
+
+        const inputs = row.children;
+        const inputsCount = inputs.length;
+
+        for(let i = 0; i < inputsCount; i++) {
+            const input = inputs[i];
+
+            input.disabled = false;
+            input.style.background = 'white';
+        }
+    }
+
+    const resetLine = (lineId) => {
+        const row = document.getElementsByClassName('row')[lineId];
+
+        if (!row) {
+            return;
+        }
+
+        const inputs = row.children;
+        const inputsCount = inputs.length;
+
+        for(let i = 0; i < inputsCount; i++) {
+            const input = inputs[i];
+
+            input.value = "";
+        }
+    }
+    let points = 0;
+    function addPoint(points) {
+        console.error(points)
+        document.getElementById(Points).innerHTML = points;
+    }
+
     const submitLine = () => {
         let breakLoop = false;
 
@@ -56,9 +96,23 @@ $(document).ready(function () {
                 }
 
                 if(word.length === 5) {
-                    chances[index] = true;
-                    blockLine(index);
-                    activateLine(index+1);
+                    const data = { word };
+
+                    $.post('/api/check', data)
+                    .then(response => {
+                        console.log(response);
+                        if (response === 'no') {
+                            resetLine(index*1);
+                        } else if (response === 'ok') {
+                            chances[index] = true;
+                            blockLine(index);
+                            activateLine(index+1);
+                            unLock(index+1);
+                            addPoint(points+1);
+                        } else {
+                            console.log('Wystąpił błąd.')
+                        }
+                    });
                 }
             }
         });
@@ -76,8 +130,6 @@ $(document).ready(function () {
             }
 
             const match = pattern.includes(key);
-
-            console.log(match);
             if(match) {
                 input.value = key;
 
