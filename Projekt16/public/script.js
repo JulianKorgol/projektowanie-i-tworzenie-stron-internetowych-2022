@@ -21,6 +21,8 @@ $(document).ready(function () {
             input.disabled = true;
             input.style.background = '#787c7e';
         }
+
+        if (lineId === 5) gameEnd();
     }
 
     const activateLine = (lineId) => {
@@ -78,6 +80,16 @@ $(document).ready(function () {
             points = points - 1;
         }
         document.getElementById("Points").innerHTML = points;
+    }
+
+    const gameEnd = () => {
+        alert("Wygrałeś! Miałeś: " + points + " punktów.")
+        for(let i = 0; i < inputsCount; i++) {
+            resetLine(i)
+            chances[i] = false
+        }
+        unLock(0)
+        points = -1;
     }
 
     const submitLine = () => {
